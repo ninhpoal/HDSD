@@ -1,1 +1,246 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giấy Đề Nghị Thanh Toán</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+
+        body {
+            font-family: "Times New Roman", Times, serif;
+            width: 210mm;
+            /* Width of A4 */
+            margin: 0 auto;
+        }
+
+         
+        p {
+            text-align: justify;
+        }
+
+
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+
+        .signature {
+            margin-top: 50px;
+        }
+
+        .content {
+            margin-left: 40px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        @media print {
+            #footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                text-align: right;
+                /* Đảm bảo rằng nền footer là trắng để tránh chồng lấp */
+                padding: 10px 0;
+                /* Đường kẻ ngăn cách footer với nội dung */
+            }
+
+            /* Ẩn các phần tử khác nếu cần */
+            #in * {
+                visibility: hidden;
+            }
+
+            #footer,
+            #footer,
+            #content * {
+                visibility: visible;
+            }
+
+            /* Nếu bạn muốn hiện các phần khác của nội dung, hãy tùy chỉnh các selector */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="in"><button type="button" class="btn btn-outline-primary" onclick="window.print()">In hoặc xuất
+            PDF</button>
+        <button id="exportBtn" type="button" class="btn btn-outline-primary" onclick="exportHTML()">Xuất thành file
+            DOC</button>
+    </div>
+
+    <div id="content">
+        <div class="center">
+            <h4 class="bold">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h4>
+            <h5 class="bold ">Độc lập - Tự do - Hạnh phúc</h5>
+            <p class="center">---------------o0o---------------</p>
+        </div>
+        <div class="right">
+            <p>TP.HCM, Ngày <span id="a"> </span> Tháng <span id="b"> </span> Năm <span id="c"></span></p>
+        </div>
+        <h4 class="center bold">GIẤY ĐỀ NGHỊ THANH TOÁN</h4>
+        <p class="center bold">Kính gửi: <span id="aj"></span></p>
+        <div class="content">
+            <p class="p">Căn cứ theo Hợp đồng thẩm định giá số <span id="y"></span>/HD/TDG/AAVC ngày <span id="ae"></span> giữa
+                <span id="aj1"></span> và Công ty TNHH Hãng Định Giá và Kiểm toán Châu Á.</p>
+            <p class="p">Chúng tôi kính đề nghị <span id="aj2"></span> thực hiện việc thanh toán toàn bộ số tiền đã ghi nhận trong
+                Điều 5 của Hợp đồng cho Công ty TNHH Hãng Định Giá và Kiểm toán Châu Á, cụ thể như sau:</p>
+            <ul>
+                <li>Số tiền hợp đồng: <span id="ss"> </span> VND</li>
+                <li>Số tiền đơn vị đã ứng trước: <span id="uu"> </span> VND</li>
+                <li>Số tiền còn lại phải thanh toán: <span id="vv"></span> VND.</li>
+            </ul>
+            <i>(Bằng chữ: <span id="vv1"></span>)</i>
+        </div>
+        <p class="bold">Thông tin tài khoản:</p>
+        <div class="content">
+            <p>Công ty TNHH Hãng Định giá và Kiểm toán Châu Á</p>
+            <p>Tài khoản số: 000003400216</p>
+            <p>Tại Ngân hàng TMCP Đông Nam Á (Seabank) - Chi nhánh Hà Đông – Phòng giao dịch Văn Quán</p>
+        </div>
+        <i>Rất mong sự hợp tác của Quý Công ty.<br>Trân trọng cảm ơn!</i>
+        <div class="signature">
+            <p class="right">ĐẠI DIỆN CÔNG TY<br>Phó Tổng Giám Đốc</p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p class="right"><span class="bold">VÕ HOÀNG ẤN&ensp;</span></p>
+        </div>
+       
+    </div>
+    <div id="footer" class="footer">
+        <img src="https://ninhpoal.github.io/thamdinh/hinhanh/dinhgiaavsodt-removebg-preview.png"
+            style="    width: 100px;" alt="Logo Định Giá AV">
+
+    </div>
+    <script src="doctien.js"></script>
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Get parameters from URL
+        var a = getUrlParameter('a');
+        var b = getUrlParameter('b');
+        var c = getUrlParameter('c');
+        var aj = getUrlParameter('aj');
+        var y = getUrlParameter('y');
+        var ss = getUrlParameter('ss');
+        var uu = getUrlParameter('uu');
+        var vv = getUrlParameter('vv');
+        // Display parameters on the page
+        document.getElementById('a').textContent = a;
+        document.getElementById('b').textContent = b;
+        document.getElementById('c').textContent = c;
+        document.getElementById('aj').textContent = aj;
+        document.getElementById('aj1').textContent = aj;
+        document.getElementById('aj2').textContent = aj;
+
+        document.getElementById('y').textContent = y;
+        document.getElementById('ss').textContent = ss;
+        document.getElementById('uu').textContent = uu;
+        document.getElementById('vv').textContent = vv;
+        var vvNumber = Number(vv.replace(/\./g, ''));
+        console.log(vvNumber)
+        document.getElementById('vv1').textContent = convertNumberToVietnamese(vvNumber);
+    </script>
+    <script>
+        function exportHTML() {
+            var header = "<html xmlns:o='urn:schemas-microsoft-com:office:office' " +
+                "xmlns:w='urn:schemas-microsoft-com:office:word' " +
+                "xmlns='http://www.w3.org/TR/REC-html40'>" +
+                "<head><meta charset='utf-8'><title>Export HTML to Word Document with JavaScript</title>" +
+                "<style>" +
+                "@page {" +
+                "    size: A4;" +
+                "    margin: 20mm;" +
+                "}" +
+                "body {" +
+                "    font-family: 'Times New Roman', Times, serif;" +
+                "    width: 210mm;" +
+                "    margin: 0 auto;" +
+                "}" +
+                ".center {" +
+                "    text-align: center;" +
+                "}" +
+                ".right {" +
+                "    text-align: right;" +
+                "}" +
+                 
+                `p {
+                        text-align: justify;
+                        line-height: 2;
+                        margin: 10px 0;
+                }`+
+                ".bold {" +
+                "    font-weight: bold;" +
+                "}" +
+                ".underline {" +
+                "    text-decoration: underline;" +
+                "}" +
+                ".signature {" +
+                "    margin-top: 50px;" +
+                "}" +
+                ".content {" +
+                "    margin-left: 40px;" +
+                "}" +
+                ".red {" +
+                "    color: red;" +
+                "}" +
+                ".buttons {" +
+                "    text-align: center;" +
+                "    margin-bottom: 20px;" +
+                "}" +
+                "</style>" +
+                "</head><body>";
+
+            var sourceHTML = header + document.getElementById("content").innerHTML;
+
+            var source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
+            var fileDownload = document.createElement("a");
+            document.body.appendChild(fileDownload);
+            fileDownload.href = source;
+            fileDownload.download = 'document.doc';
+            fileDownload.click();
+            document.body.removeChild(fileDownload);
+        }
+    </script>
+</body>
+
+</html>
